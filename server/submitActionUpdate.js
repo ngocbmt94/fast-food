@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { updateMeal } from "./meals";
 import { z } from "zod";
 
@@ -45,5 +46,6 @@ export async function submitActionUpdate(prevState, formData) {
   };
 
   await updateMeal(meal);
+  revalidatePath("/meals"); // Update cached meals
   redirect("/meals");
 }

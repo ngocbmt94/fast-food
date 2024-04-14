@@ -1,13 +1,25 @@
 import { getMealDetail } from "@/server/meals";
 import Image from "next/image";
 import styles from "./page.module.css";
-import Error from "../error";
+import { notFound } from "next/navigation";
+
+// generate meta data for dynamic page
+export async function generateMetadata({ params }) {
+  const slug = params.mealSlug;
+  const meal = await getMealDetail(slug);
+
+  if (!meal) notFound();
+  return {
+    title: meal.title,
+    description: meal.sumary,
+  };
+}
 
 async function MealDetail({ params }) {
   const slug = params.mealSlug;
   const meal = await getMealDetail(slug);
 
-  if (!meal) return <Error />;
+  if (!meal) notFound();
   const { title, image, sumary, instructions, creator, creator_email } = meal;
 
   const covertInstruction = instructions.replace(/\n/g, "</br>");

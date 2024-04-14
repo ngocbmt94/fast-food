@@ -3,7 +3,11 @@ import MealsGrid from "@/components/meals/MealsGrid";
 import { Suspense } from "react";
 import LoadingFor from "./loading";
 
-function Meals() {
+export const metadata = {
+  title: "All meals",
+  description: "Browse the delicious meals shared by our vibrant comunity.",
+};
+export function Meals() {
   return (
     <main>
       <Intro />
