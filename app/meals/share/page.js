@@ -1,11 +1,14 @@
-import Link from "next/link";
+import FormShare from "@/components/form/FormShare";
+import Intro from "@/components/share/Intro";
+import classes from "./page.module.css";
 
-function Share() {
+export default function ShareMealPage() {
   return (
-    <div>
-      This is share page<Link href="/">Back</Link>
-    </div>
+    <>
+      <Intro />
+      <main className={classes.main}>
+        <FormShare />
+      </main>
+    </>
   );
 }
-
-export default Share;

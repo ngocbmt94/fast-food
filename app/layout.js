@@ -1,7 +1,5 @@
-import { Suspense } from "react";
 import "./globals.css";
 import Header from "@/components/header/Header";
-import Loading from "./loading";
 
 export const metadata = {
   title: "Fast Food",
@@ -13,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Header />
-        <Suspense fallback={<Loading />}>{children}</Suspense>
+        {children}
       </body>
     </html>
   );

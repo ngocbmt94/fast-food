@@ -1,7 +1,8 @@
 function PageNotFound() {
   return (
-    <main>
-      <h1>Fallback page for Not Found errors (thrown by sibling or nested pages or layouts)</h1>
+    <main className="not-found">
+      <h1>OOPS !!!</h1>
+      <p>404 | This page could not found</p>
     </main>
   );
 }

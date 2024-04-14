@@ -1,7 +1,10 @@
 import styles from "./mealsGrid.module.css";
 import MealItem from "./MealItem";
+import { getMeals } from "@/server/meals";
 
-function mealsGrid({ meals }) {
+async function mealsGrid() {
+  const meals = await getMeals();
+
   return (
     <ul className={styles.meals}>
       {meals.map((meal) => (

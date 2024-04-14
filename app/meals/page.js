@@ -1,15 +1,16 @@
 import Intro from "@/components/meals/Intro";
 import MealsGrid from "@/components/meals/MealsGrid";
-import { getMeals } from "@/server/meals";
+import { Suspense } from "react";
+import LoadingFor from "./loading";
 
-async function Meals() {
-  const meals = await getMeals();
-
+function Meals() {
   return (
-    <>
+    <main>
       <Intro />
-      <MealsGrid meals={meals} />
-    </>
+      <Suspense fallback={<LoadingFor />}>
+        <MealsGrid />
+      </Suspense>
+    </main>
   );
 }
 
